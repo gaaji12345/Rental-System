@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+*{
+    font-family: 'Poppins', sans-serif;
+}
+
+main{
+    width: 100vw;
+    height: 100vh;
+    /*background-image: url("../../assects/images/carside.jpg");*/
+    background-color: #4A9DEC;
+    background-size: cover;
+    background-position: center;
+}
+
+#regBg{
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(10px);
+    /*align-items: center;*/
+}
+
+#signUpSec{
+    width: 50%;
+    height: 90%;
+}
+
+.input {
+    border: 2px solid transparent;
+    /*width: 15em;*/
+    height: 2.5em;
+    padding-left: 0.8em;
+    outline: none;
+    overflow: hidden;
+    background-color: #F3F3F3;
+    border-radius: 10px;
+    transition: all 0.5s;
+    width: 50%;
+}
+
+.inputFull{
+    width: 100%;
+}
+
+.input:hover,
+.input:focus {
+    border: 2px solid #4A9DEC;
+    box-shadow: 0px 0px 0px 7px rgb(74, 157, 236, 20%);
+    background-color: white;
+}
+
+
+.licenceImg{
+    width: 150px;
+    height: 100px;
+}
+
+#licenceUploaderDiv{
+    flex-direction: row;
+}
+
+#fieUploadFlex{
+    flex-direction: row;
+}
+
+.fileInput{
+    width: 370px;
+}
+
+#lineBlue{
+    width: 70%;
+    height: 1px;
+}
+
+.btn-regForm{
+    width: 50%;
+}
+
+#backToSignIn{
+    cursor: pointer;
+}

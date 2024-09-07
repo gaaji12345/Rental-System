@@ -1,0 +1,254 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+*{
+
+    font-family: 'Poppins', sans-serif;
+}
+
+.navbar-expand-lg .navbar-collapse{
+    justify-content: flex-end;
+}
+
+
+
+.home1{
+    height: 95vh;
+    width: 100vw;
+    background-color: black;
+    /*margin-top: -5px;*/
+    background-image: url("/assets/img/bg_sec1_final.png");
+    background-size: cover;
+    background-position: center;
+    -moz-background-size: cover;
+}
+
+
+#textSec1Div{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.txt-big{
+    font-size: 60px;
+}
+
+#homePTxt{
+    font-size: 18px;
+    width: 40%;
+}
+
+#mainSecPrice{
+    font-size: 50px;
+
+}
+
+#btnGetStart{
+    width: 150px;
+    font-size: 18px;
+}
+
+.menu-size{
+    font-size: 18px;
+}
+
+#loginBG{
+    width: 100vw;
+    height: 100vh;
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+#loginMainDiv{
+    width: 70%;
+    height: 70%;
+}
+
+#loginImgDiv{
+    height: 100%;
+    width: 60%;
+}
+
+#loginTextDiv{
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.input {
+    border: 2px solid transparent;
+    width: 15em;
+    height: 2.5em;
+    padding-left: 0.8em;
+    outline: none;
+    overflow: hidden;
+    background-color: #F3F3F3;
+    border-radius: 10px;
+    transition: all 0.5s;
+    width: 60%;
+}
+
+.input:hover,
+.input:focus {
+    border: 2px solid #4A9DEC;
+    box-shadow: 0px 0px 0px 7px rgb(74, 157, 236, 20%);
+    background-color: white;
+}
+
+.button {
+    position: relative;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+    padding-block: 0.5rem;
+    padding-inline: 1.25rem;
+    /*background-color: rgb(0 107 179);*/
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffff;
+    gap: 10px;
+    font-weight: bold;
+    border: 3px solid #ffffff4d;
+    outline: none;
+    overflow: hidden;
+    font-size: 15px;
+    width: 60%;
+}
+
+.icon {
+    width: 24px;
+    height: 24px;
+    transition: all 0.3s ease-in-out;
+}
+
+.button:hover {
+    transform: scale(1.05);
+    border-color: #fff9;
+}
+
+.button:hover .icon {
+    transform: translate(4px);
+}
+
+.button:hover::before {
+    animation: shine 1.5s ease-out infinite;
+}
+
+.button::before {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100%;
+    background-image: linear-gradient(
+            120deg,
+            rgba(255, 255, 255, 0) 30%,
+            rgba(255, 255, 255, 0.8),
+            rgba(255, 255, 255, 0) 70%
+    );
+    top: 0;
+    left: -100px;
+    opacity: 0.6;
+}
+
+@keyframes shine {
+    0% {
+        left: -100px;
+    }
+
+    60% {
+        left: 100%;
+    }
+
+    to {
+        left: 100%;
+    }
+}
+
+#forgotDiv{
+    width: 57%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#lineBreak{
+    width: 60%;
+    height: 0.3%;
+}
+
+#closeLogin{
+    cursor: pointer;
+}
+
+#aboutSec{
+    width: 100vw;
+    height: 60vh;
+
+}
+
+#aboutImgDiv{
+    background-image: url("../img/stylish-elegant-woman-car-salon.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.carViewDiv{
+    height: 600px;
+}
+
+
+
+button {
+    cursor: pointer;
+}
+
+.rentCarDetailsBg{
+    backdrop-filter:brightness(40%);
+    display: flex;
+    flex-direction: column;
+}
+
+#rentDetailFillingDiv{
+
+}
+
+.btn-click{
+    font-size: 30px;
+    cursor: pointer;
+}
+
+
+.slideshow-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-content: start;
+    height: 200px;
+    overflow: hidden;
+}
+
+.slide {
+    display: none;
+}
+
+
+.fade {
+    animation-name: fade;
+    animation-duration: 3s; /* Change the duration as needed */
+}
+
+@keyframes fade {
+    0% { opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { opacity: 0; }
+}
