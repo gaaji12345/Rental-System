@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+  <link rel="stylesheet" href="../assects/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="../assects/styles/admin.css">
+</head>
+<body>
+<main>
+  <section id="regBg" class="bg-transparent d-flex justify-content-center align-items-center">
+    <section id="signUpSec" class="bg-white ms-5 rounded">
+      <h4 class="text-center mt-4 text-primary">Customer Registration</h4>
+      <form id="cusRegForm" role="form" action="/customer" enctype="multipart/form-data" method="post">
+        <div class="d-flex container mt-5">
+          <input type="text" name="customerID" id="txtCusID" placeholder="Customer ID" class="input me-3 ms-3">
+          <input type="text" name="name" id="txtCusName" placeholder="Full Name" class="input me-3 ms-3">
+        </div>
+
+        <div class="d-flex container mt-4">
+          <input type="text" name="address" id="txtCusAddress" placeholder="Address" class="input me-3 ms-3 inputFull">
+        </div>
+
+        <div class="d-flex container mt-4">
+          <input type="email" name="email" id="txtCusEmail" placeholder="Email" class="input me-3 ms-3">
+          <input type="tel" name="contactNo" id="txtCusContact" placeholder="Mobile Number" class="input me-3 ms-3">
+        </div>
+
+        <div class="d-flex container mt-4">
+          <input type="text" name="licenseNo" id="txtDrLicence" placeholder="Driving Licence Number" class="input me-3 ms-3">
+        </div>
+        <p class="mt-5 text-primary text-center">Upload photos Of your Driving License (Front and Back)</p>
+        <div class="d-flex container mt-4" id="licenceUploaderDiv">
+          <div>
+            <input type="file"  id="frontImage" name="frontImage" class="input ms-3 mb-3 fileInput form-control" >
+            <input type="file"  id="backImage" name="backImage" class="input ms-3 fileInput form-control" >
+          </div>
+
+          <div id="fieUploadFlex" class="d-flex">
+            <img src="" alt="" class="licenceImg me-3 ms-5" >
+            <img src="" alt="" class="licenceImg me-5">
+          </div>
+
+        </div>
+
+
+
+        <p class="mt-5 text-primary text-center">Create a User Name and Password For Your Account</p>
+
+        <div class="d-flex container mt-4">
+          <input type="text" name="userName" id="txtCusUsername" placeholder="User Name" class="input me-3 ms-3">
+          <input type="password" name="password" id="txtCusPassword" placeholder="Password" class="input me-3 ms-3">
+        </div>
+
+        <div class="d-flex container mt-5">
+          <button type="button" class="btn btn-primary btn-regForm ms-3 me-3" id="btnAddCustomer">Submit</button>
+          <button type="button" class="btn btn-secondary btn-regForm ms-3 me-3">Clear</button>
+        </div>
+      </form>
+      <p class="text-dark text-center mt-4">Already Have an Account <a id="backToSignIn" class="fa-underline text-primary">Sign In</a></p>
+    </section>
+
+  </section>
+</main>
+<script src="../assects/jquery-3.7.1.min.js"></script>
+
+
+</body>
+</html>

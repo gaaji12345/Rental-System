@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin</title>
+    <link rel="stylesheet" href="../assects/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../assects/styles/admin.css">
+</head>
+<body class="overflow-hidden">
+
+<main class="bg-success">
+    <section id="sideBarSec" class="bg-dark">
+        <img src="../assets/logo/logoCarRentalwc2.png" id="logo" class="ms-4 mt-3">
+
+        <div class="d-flex align-items-start container mt-5">
+            <div class="nav flex-column nav-pills me-3 ms-3" aria-orientation="vertical">
+                <button class="nav-link active text-light text-start mt-3" id="dashboard-tab" data-bs-toggle="pill" ><i class="fa-solid fa-house me-4"></i>Dashboard</button>
+                <button class="nav-link text-light text-start mt-3" id="customers-tab" data-bs-toggle="pill"><i class="fa-solid fa-users me-4"></i>Customers</button>
+                <button class="nav-link text-light text-start mt-3" id="cars-tab" data-bs-toggle="pill"><i class="fa-solid fa-car me-4"></i>Cars</button>
+                <button class="nav-link text-light text-start mt-3" id="drivers-tab" data-bs-toggle="pill"><i class="fa-solid fa-drivers-license me-4"></i>Drivers</button>
+                <button class="nav-link text-light text-start mt-3" id="rentals-tab" data-bs-toggle="pill"><i class="fa-solid fa-calendar-alt me-4"></i>Rentals</button>
+                <button class="nav-link text-light text-start mt-3" id="Payments-tab" data-bs-toggle="pill"><i class="fa-solid fa-cash-register me-4"></i>Payments</button>
+                <button class="nav-link text-light text-start mt-3" id="reports-tab" data-bs-toggle="pill"><i class="fa-solid fa-file-alt me-4"></i>Reports</button>
+
+            </div>
+        </div>
+
+    </section>
+    <section id="oSideBarSec" class="bg-white">
+        <section id="topBar" class="bg-dark text-end">
+            <div id="btnSignOut"><i class="fa-solid fa-sign-out-alt text-light me-5 mt-3 topNavText" ></i></div>
+        </section>
+        <section id="containSec">
+
+
+            <!--            DASHBOARD SECTION-->
+
+            <section id="dashboardSec" class="container-fluid contentSections bg-white z-0">
+                <div id="countsMainDiv" class="container-fluid d-flex mt-4">
+                    <div class="countDiv me-4 d-flex">
+                        <div class="countNum ms-4 mt-3">
+                            <h1 class="text-primary">25</h1>
+                            <h5>Customers</h5>
+                        </div>
+                        <div class="iconOfCount mt-3 text-secondary"><i class="fa-solid fa-users"></i></div>
+
+                    </div>
+                    <div class="countDiv me-4 d-flex">
+                        <div class="countNum ms-4 mt-3">
+                            <h1 class="text-primary">40</h1>
+                            <h5>Drivers</h5>
+                        </div>
+                        <div class="iconOfCount mt-3 text-secondary"><i class="fa-solid fa-user-alt"></i></div>
+                    </div>
+                    <div class="countDiv me-4 d-flex">
+                        <div class="countNum ms-4 mt-3">
+                            <h1 class="text-primary">50</h1>
+                            <h5>Cars</h5>
+                        </div>
+                        <div class="iconOfCount mt-3 text-secondary"><i class="fa-solid fa-car-alt"></i></div>
+                    </div>
+                    <div class="countDiv me-4 d-flex">
+                        <div class="countNum ms-4 mt-3">
+                            <h1 class="text-primary">70</h1>
+                            <h5>Rentals</h5>
+                        </div>
+                        <div class="iconOfCount mt-3 text-secondary"><i class="fa-solid fa-calendar-alt"></i></div>
+                    </div>
+                </div>
+            </section>
+
+            <!--            CUSTOMER SECTION-->
+
+            <section id="customersSec" class="container-fluid contentSections bg-white z-2">
+                <table class="table mt-3">
+                    <thead class="table-header bg-primary text-white">
+                    <td>Customer ID</td>
+                    <td>Name</td>
+                    <td>Address</td>
+                    <td>Contact</td>
+                    <td>Email</td>
+                    <td>FrontImage</td>
+                    <td>BackImage</td>
+                    </thead>
+
+                    <tbody id="tblCustomers"></tbody>
+                </table>
+            </section>
+
+            <!--            CAR SECTION-->
+
+            <section id="carsSec" class="container-fluid contentSections">
+                <div id="carDataInsertDiv" class="rounded-2 me-3 mt-3">
+                    <h5 class="text-primary text-center mt-2">Car Registration Form</h5>
+                    <form id="carRegForm" role="form" action="/car" enctype="multipart/form-data" method="post">
+                        <div class="d-flex container mt-4">
+                            <input type="text" name="carID" id="txtCarId" placeholder="Car ID" class="input me-3 ms-3">
+                            <input type="text" name="regNo" id="txtCarRegNum" placeholder="Registration Number" class="input me-3 ms-3">
+                        </div>
+
+                        <div class="d-flex container mt-4">
+                            <input type="text" name="brand" id="txtCarBrand" placeholder="Brand" class="input me-3 ms-3">
+                            <select  name="type" id="txtCarType" class="input me-3 ms-3">
+                                <option value="null" selected>Type Of The Car</option>
+                                <option value="general">General</option>
+                                <option value="premium">Premium</option>
+                                <option value="luxury">Luxury</option>
+                            </select>
+                        </div>
+
+                        <div class="d-flex container mt-4">
+                            <input type="text" name="passenger" id="txtCarNumPassengers" placeholder="Number Of Passengers" class="input me-3 ms-3">
+                            <input type="text" name="color" id="txtCarColour" placeholder="Color" class="input me-3 ms-3">
+                        </div>
+
+                        <div class="d-flex container mt-4">
+                            <select name="transmissionType" id="txtCarTransmission" class="input me-3 ms-3">
+                                <option value="null" selected>Transmission Type</option>
+                                <option value="manual">Manual</option>
+                                <option value="auto">Automatic</option>
+                            </select>
+                            <select name="fuelType" id="txtCarFuel" class="input me-3 ms-3">
+                                <option value="null" selected>Fuel Type</option>
+                                <option value="petrol">Petrol</option>
+                                <option value="diesel">Diesel</option>
+                            </select>
+                        </div>
+
+                        <div class="d-flex container mt-3">
+                            <input type="number" name="extraMileagePrice" id="txtExtraKMPrice" placeholder="Extra Mileage Price" class="input me-3 ms-3">
+                            <input type="number" name="currentMileage" id="txtcurrentMileage" placeholder="Current Mileage" class="input me-3 ms-3">
+                        </div>
+
+                        <div class="d-flex container mt-3">
+                            <input type="number" name="wavierPayment" id="txtWaiverPayment" placeholder="Current Mileage" class="input me-3 ms-3">
+
+                            <select name="availability" id="txtAvailability" class="input me-3 ms-3">
+                                <option value="null" selected>Availability</option>
+                                <option value="available">available</option>
+                                <option value="non-available">non-available</option>
+                            </select>
+                        </div>
+
+                        <p class="text-muted mt-4 ms-4 container">Daily Rates</p>
+                        <div class="d-flex container mt-3">
+                            <input type="number" name="freeMileageDaily" id="txtDailyRate" placeholder="Free Mileage" class="input me-3 ms-3">
+                            <input type="number" name="freeMileageDailyPrice" id="txtCarDayPrice" placeholder="Price" class="input me-3 ms-3">
+                        </div>
+
+                        <p class="text-muted mt-4 ms-4 container">Monthly Rates</p>
+                        <div class="d-flex container mt-3">
+                            <input type="number" name="freeMileageMonthly" id="txtFreeMileage" placeholder="Free Mileage" class="input me-3 ms-3">
+                            <input type="number" name="freeMileageMonthlyPrice" id="txtCarMonthlyPrice" placeholder="Price" class="input me-3 ms-3">
+                        </div>
+
+                        <p class="text-muted mt-4 ms-4 container mb-0">Insert Four Images Of Car(Front/Rear/Side?Interior)</p><br>
+                        <div class="d-flex container mt-0">
+                            <input type="file" name="frontImage" id="imgFront" class="input form-control me-3 ms-3">
+                            <input type="file" name="RearImage" id="imgRear" class="input form-control  me-3 ms-3">
+                        </div>
+
+                        <div class="d-flex container mt-1">
+                            <input type="file" name="sideImage" id="imgside" class="input form-control me-3 ms-3">
+                            <input type="file" name="interiorImage" id="imgInterior" class="input form-control  me-3 ms-3">
+                        </div>
+
+                        <div class="d-flex container mt-5">
+                            <button type="button" name="" id="btnAddCar" class="me-3 ms-3 btn btn-primary car-btn">Add Car</button>
+                            <button type="button" name="" id="btnClrCar"  class="me-3 ms-3 btn btn-secondary car-btn">Clear Fields</button>
+                        </div>
+
+                        <div class="d-flex container mt-5">
+                            <button type="button" name="" id="btnUpdateCar" class="me-3 ms-3 btn btn-success car-btn">Update</button>
+                            <button type="button" name="" id="btnDeleteCar"  class="me-3 ms-3 btn btn-danger car-btn">Delete</button>
+                        </div>
+
+
+                    </form>
+                </div>
+                <div id="carDetailTableDiv" class="rounded-2 mt-3 container">
+                    <table class="table mt-3">
+                        <thead class="table-header bg-primary text-white">
+                        <td>Car ID</td>
+                        <td>Type</td>
+                        <td>Brand</td>
+                        <!--                        <td>Daily Rate</td>-->
+                        <td>Availability</td>
+                        </thead>
+
+                        <tbody id="tblCars"></tbody>
+                    </table>
+                </div>
+
+                <section class="popupSecAdminPanel container-fluid bg-transparent z-2 position-absolute" id="carDetailsPopupBg">
+                    <div class="bg-white d-flex flex-column z-3 rounded popupDetailDiv z-3 shadow" id="carDetailPopup">
+                        <h5 class="text-primary text-center mt-2 text-decoration-underline">Car Details</h5>
+                        <div class="w-100 d-flex">
+                            <div class="w-50">
+                                <div class="container d-flex mt-3 ms-3">
+                                    <p class="me-3"><i class="fa-solid fa-car me-2"></i>Car ID :</p>
+                                    <p class="text-primary" id="lblCarId"></p>
+                                </div>
+
+                                <div class="container d-flex mt-3 ms-3">
+                                    <p class="me-3"><i class="fa-solid fa-hashtag me-2"></i>Registered No :</p>
+                                    <p class="text-primary" id="lblregNo"></p>
+                                </div>
+
+                                <div class="container d-flex mt-3  ms-3">
+                                    <p class="me-3"><i class="fa-solid fa-industry me-2"></i>Brand   :</p>
+                                    <p class="text-primary" id="lblbrand"></p>
+                                </div>
+
+                                <div class="container d-flex mt-3 ms-3">
+                                    <p class="me-3"><i class="fa-solid fa-arrow-pointer me-2"></i>Type   :</p>
+                                    <p class="text-primary" id="lbltype"></p>
+                                </div>
+
+                                <div class="container d-flex mt-3 ms-3">
+                                    <p class="me-3"><i class="fa-solid fa-arrow-down-1-9 me-2"></i>No of Passengers :</p>
+                                    <p class="text-primary" id="lblPassenger"></p>
+                                </div>
+
+                                <div class="container d-flex mt-3 ms-3">
+                                    <p class="me-3"><i class="fa-solid fa-image me-2"></i>Front Image  :</p>
+                                    <img class="text-primary w-50" id="frontImage" style="height: 100px">
+                                </div>
+
+                                <div class="container d-flex mt-3 ms-3">
+                                    <p class="me-3"><i class="fa-solid fa-image me-2"></i>Rear Image  :</p>
+                                    <img class="text-primary w-50" id="RearImage" style="height: 100px">
+                                </div>
+
+                                <div class="container d-flex mt-3 ms-3">
+                                    <p class="me-3"><i class="fa-solid fa-gas-pump me-2"></i>Fuel Type  :</p>
+                                    <p class="text-primary" id="lblfuelType"></p>
+                                </div>
+
+                                <div class="container d-flex mt-3 ms-3">
+                                    <p class="me-3"><i class="fa-solid fa-dollar-sign me-2"></i>Extra Mileage Price  :</p>
+                                    <p class="text-primary" id="lblextraMileagePrice"></p>
+                                </div>
+
+                                <div class="container d-flex mt-3 ms-3">
+                                    <p class="me-3"><i class="fa-solid fa-car-side me-2"></i>color  :</p>
+                                    <p class="text-primary" id="lblcolor"></p>
+                                </div>
+                            </div>
+                            <div class="w-50">
+                                <div class="container d-flex mt-3 ms-3">
+                                    <p class="me-3"><i class="fa-solid fa-meteor me-2"></i>Curent Mileage :</p>
+                                    <p class="text-primary" id="lblCurrentMileage"></p>
+                                </div>
+
+                                <div class="container d-flex mt-3 ms-3">
+                                    <p class="me-3"><i class="fa-regular fa-money-check-dollar me-2"></i>Waiver Payment :</p>
+                                    <p class="text-primary" id="lblWaiverPayment"></p>
+                                </div>
+
+                                <div class="container d-flex mt-3  ms-3">
+                                    <p class="me-3"><i class="fa-solid fa-toggle-on me-2"></i>Availability   :</p>
+                                    <p class="text-primary" id="lblAvailability"></p>
+                                </div>
+
+                                <div class="container d-flex mt-3 ms-3">
+                                    <p class="me-3"><i class="fa-solid fa-hashtag me-2"></i>Free Daily Mileages   :</p>
+                                    <p class="text-primary" id="lblfreeMileageDaily"></p>
+                                </div>
+
+                                <div class="container d-flex mt-3 ms-3">
+                                    <p class="me-3"><i class="fa-solid fa-dollar-sign me-2"></i>Daily Price :</p>
+                                    <p class="text-primary" id="lblfreeMileageDailyPrice"></p>
+                                </div>
+
+                                <div class="container d-flex mt-3 ms-3">
+                                    <p class="me-3"><i class="fa-solid fa-image me-2"></i>Side Image  :</p>
+                                    <img class="text-primary w-50" id="sideImage" style="height: 100px">
+                                </div>
+
+                                <div class="container d-flex mt-3 ms-3">
+                                    <p class="me-3"><i class="fa-solid fa-image me-2"></i>Interior Image  :</p>
+                                    <img class="text-primary w-50" id="interiorImage" style="height: 100px">
+                                </div>
+
+                                <div class="container d-flex mt-3 ms-3">
+                                    <p class="me-3"><i class="fa-solid fa-hashtag me-2"></i>Free Monthly Mileage  :</p>
+                                    <p class="text-primary" id="lblfreeMileageMonthly"></p>
+                                </div>
+
+                                <div class="container d-flex mt-3 ms-3">
+                                    <p class="me-3"><i class="fa-solid fa-dollar-sign me-2"></i>Monthly Price  :</p>
+                                    <p class="text-primary" id="lblfreeMileageMonthlyPrice"></p>
+                                </div>
+
+                                <div class="container d-flex mt-3 ms-3">
+                                    <p class="me-3"><i class="fa-solid fa-gear me-2"></i>Transmission  :</p>
+                                    <p class="text-primary" id="lbltransmissionType"></p>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="container d-flex mt-3 align-items-center justify-content-center">
+                            <button class="btn btn-dark text-white me-3 w-25 " id="btnEditCarDetail">Edit Details</button>
+                            <button class="btn btn-danger text-white w-25" id="btnCloseCarDetail">Close</button>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!--            DRIVER SECTION-->
+
+            <section id="driversSec" class="container-fluid contentSections position-relative">
+                <div id="driverDataInsertDiv" class="rounded-2 me-3 mt-3">
+                    <h5 class="text-primary text-center mt-4">Driver Registration Form</h5>
+                    <form id="driverRegForm" role="form" action="/driver" enctype="multipart/form-data" >
+                        <div class="d-flex container mt-4">
+                            <input type="text" name="driverID" id="txtDriverId" placeholder="Driver ID" class="input me-3 ms-3">
+                            <input type="text" name="drivingLicenceNo" id="txtDriverLicenceNo" placeholder="Driving License No." class="input me-3 ms-3">
+                        </div>
+
+                        <div class="d-flex container mt-4">
+                            <input type="text" name="driverName" id="txtDriverName" placeholder="Name" class="inputFull input me-3 ms-3">
+                        </div>
+
+
+                        <div class="d-flex container mt-4">
+                            <input type="email" name="email" id="txtDriverEmail" placeholder="email" class="input me-3 ms-3">
+                            <input type="tel" name="contactNo" id="txtDriverContact" placeholder="Contact Number" class="input me-3 ms-3">
+                        </div>
+
+                        <p class="mt-5 text-primary text-center">Upload photos Of your Driving License (Front and Back)</p>
+                        <div class="d-flex container mt-4" id="licenceUploaderDiv">
+                            <input type="file" name="frontImage" id="fileDrLicenceF" placeholder="Front Image DL" class="input ms-3 mb-3 fileInput form-control">
+                            <input type="file" name="backImage" id="fileDrLicenceB" placeholder="Back Image DL" class="input ms-3 fileInput form-control">
+
+                        </div>
+
+                        <div class="d-flex container mt-3">
+                            <img src="" alt="" class="licenceImg me-3 ms-5" id="driverFront_view">
+                            <img src="" alt="" class="licenceImg me-5" id="driverBack_view">
+                        </div>
+
+                        <div class="d-flex container mt-5">
+                            <input type="text" name="userName" id="txtDriverUserName" placeholder="User Name" class="input me-3 ms-3">
+                            <input type="password" name="password" id="txtDriverPassword" placeholder="Password" class="input me-3 ms-3">
+                        </div>
+
+                        <div class="d-flex container mt-5">
+                            <button type="button" name="" id="btnSaveDriver" class="me-3 ms-3 btn btn-primary car-btn">Add Car</button>
+                            <button type="button" name="" id="btnClrDriver"  class="me-3 ms-3 btn btn-secondary car-btn">Clear Fields</button>
+                        </div>
+
+                        <div class="d-flex container mt-3">
+                            <button type="button" name="" id="btnUpdateDriver" class="me-3 ms-3 btn btn-success car-btn">Update</button>
+                            <button type="button" name="" id="btnDeleteDriver"  class="me-3 ms-3 btn btn-danger car-btn">Delete</button>
+                        </div>
+
+
+                    </form>
+                </div>
+                <div id="driverDetailTableDiv" class="rounded-2 mt-3 container">
+                    <table class="table mt-3">
+                        <thead class="table-header bg-primary text-white">
+                        <td>Driver ID</td>
+                        <td>Name</td>
+                        <td>Licence No.</td>
+                        <td>Contact No.</td>
+                        <!--                        <td>Email</td>-->
+                        </thead>
+
+                        <tbody id="tblDrivers"></tbody>
+                    </table>
+                </div>
+
+                <section class="popupSecAdminPanel container-fluid bg-transparent z-2 position-absolute" id="driverDetailsPopupBg">
+                    <div class="bg-white d-flex flex-column z-3 rounded popupDetailDiv z-3 shadow" id="driverDetailPopup">
+                        <h5 class="text-primary text-center mt-2 text-decoration-underline">Driver Details</h5>
+                        <div class="container d-flex mt-3 ms-3">
+                            <p class="me-3"><i class="fa-solid fa-id-card-clip me-2"></i>Driver ID :</p>
+                            <p class="text-primary" id="lblDriverId"></p>
+                        </div>
+
+                        <div class="container d-flex mt-3 ms-3">
+                            <p class="me-3"><i class="fa-regular fa-id-card me-2"></i>Driver License :</p>
+                            <p class="text-primary" id="lblDriverLicense"></p>
+                        </div>
+
+                        <div class="container d-flex mt-3  ms-3">
+                            <p class="me-3"><i class="fa-solid fa-user-tie me-2"></i>Name   :</p>
+                            <p class="text-primary" id="lblDriverName"></p>
+                        </div>
+
+                        <div class="container d-flex mt-3 ms-3">
+                            <p class="me-3"><i class="fa-solid fa-envelope me-2"></i>Email   :</p>
+                            <p class="text-primary" id="lblDriverEmail"></p>
+                        </div>
+
+                        <div class="container d-flex mt-3 ms-3">
+                            <p class="me-3"><i class="fa-solid fa-phone-volume me-2"></i>Contact No :</p>
+                            <p class="text-primary" id="lblDriverContact"></p>
+                        </div>
+
+                        <div class="container d-flex mt-3 ms-3">
+                            <p class="me-3"><i class="fa-solid fa-image me-2"></i>License Front  :</p>
+                            <img class="text-primary w-50" id="lblDriverFrontImg" style="height: 100px">
+                        </div>
+
+                        <div class="container d-flex mt-3 ms-3">
+                            <p class="me-3"><i class="fa-solid fa-image me-2"></i>License Rear  :</p>
+                            <img class="text-primary w-50" id="lblDriverRearImg" style="height: 100px">
+                        </div>
+
+                        <div class="container d-flex mt-3 ms-3">
+                            <p class="me-3"><i class="fa-solid fa-user me-2"></i>User Name  :</p>
+                            <p class="text-primary" id="lblDriverUserName"></p>
+                        </div>
+
+                        <div class="container d-flex mt-3 ms-3">
+                            <p class="me-3"><i class="fa-solid fa-lock me-2"></i>Password  :</p>
+                            <p class="text-primary" id="lblDriverPassword"></p>
+                        </div>
+
+                        <div class="container d-flex mt-3">
+                            <button class="btn btn-dark text-white me-3 w-50" id="btnEditDriverDetail">Edit Details</button>
+                            <button class="btn btn-danger text-white w-50" id="btnCloseDriverDetail">Close</button>
+                        </div>
+                    </div>
+                </section>
+            </section>
+
+            <!--            RENTAL SECTION-->
+
+            <section id="rentalsSec" class="container-fluid contentSections position-relative">
+
+                <section class="popupSecAdminPanel container-fluid bg-transparent z-3 position-absolute" id="rentalDetailsPopupBg">
+                    <div class="bg-white d-flex flex-column z-3 rounded popupDetailDiv z-3 shadow" id="rentalDetailPopup">
+                        <h5 class="text-primary text-center mt-4 text-decoration-underline">Rental Details</h5>
+                        <div class="d-flex mt-3">
+                            <div class="container d-flex mt-3 ms-3">
+                                <p class="me-3"><i class="fa-solid fa-car me-2"></i>Rent ID :</p>
+                                <p class="text-primary" id="lblRentId"></p>
+                            </div>
+
+                            <div class="container d-flex mt-3 ms-3">
+                                <p class="me-3"><i class="fa-solid fa-car me-2"></i>Cus ID :</p>
+                                <p class="text-primary" id="lblCusId"></p>
+                            </div>
+
+                            <div class="container d-flex mt-3 ms-3">
+                                <p class="me-3"><i class="fa-solid fa-car me-2"></i>Pickup Date :</p>
+                                <p class="text-primary" id="lblPickupDate"></p>
+                            </div>
+
+                            <div class="container d-flex mt-3 ms-3">
+                                <p class="me-3"><i class="fa-solid fa-car me-2"></i>Pickup Time :</p>
+                                <p class="text-primary" id="lblPickupTime"></p>
+                            </div>
+                        </div>
+
+                        <div class="d-flex mt-3">
+                            <div class="container d-flex mt-3 ms-3">
+                                <p class="me-3"><i class="fa-solid fa-car me-2"></i>Duration :</p>
+                                <p class="text-primary" id="lblDuration"></p>
+                            </div>
+                            <div class="container d-flex mt-3 ms-3">
+                                <p class="me-3"><i class="fa-solid fa-car me-2"></i>Current Status :</p>
+                                <p class="text-primary" id="lblCurrentStatus"></p>
+                            </div>
+
+                            <div class="container d-flex mt-3 ms-3">
+                                <p class="me-3"><i class="fa-solid fa-car me-2"></i>Update Status  :</p>
+                                <select name="availability" id="txtStatusRent" class="input me-3 ms-3">
+                                    <option value="PENDING" selected>PENDING</option>
+                                    <option value="ACCEPTED">ACCEPTED</option>
+                                    <option value="DECLINED">DECLINED</option>
+                                    <option value="COMPLETED">COMPLETED</option>
+                                </select>                            </div>
+
+                            <button class="btn btn-dark w-25 me-4 h-50 mt-3" id="btnRentStatusUpdate">Update</button>
+                        </div>
+
+                        <div class="container mt-3 h-50">
+                            <table class="table container">
+                                <tr><thead class="table-header bg-primary text-white">
+                                <td>Car ID</td>
+                                <!--                                <td>Car ID</td>-->
+                                <td>Driver ID</td>
+                                <td>Payment ID</td>
+                                <td>Waiver Slip</td>
+                                <td>Action</td>
+
+
+
+                                </thead></tr>
+
+                                <tbody id="tblPopupRent"></tbody>
+
+                            </table>
+                        </div>
+
+                        <div class="d-flex mt-3 container bottom-0 w-100">
+                            <div class="d-flex flex-column w-25 align-items-center">
+                                <label for="dailyPriceInput">Price For Day</label>
+                                <input class="input w-75 mt-2" id="dailyPriceInput" readonly>
+                            </div>
+
+                            <div class="d-flex flex-column w-25 align-items-center">
+                                <label for="dailyPriceInput">Km s Per Day</label>
+                                <input class="input w-75 mt-2" id="dailyKmInput">
+                            </div>
+
+                            <div class="d-flex flex-column w-25 align-items-center">
+                                <label for="dailyPriceInput">Price Per Extra Km</label>
+                                <input class="input w-75 mt-2" id="pricePerExtraKm">
+                            </div>
+
+                            <div class="d-flex flex-column w-25 align-items-center">
+                                <label for="dailyPriceInput">Extra Km</label>
+                                <input class="input w-75 mt-2" id="extraKms">
+                            </div>
+
+                            <!--                            <div class="d-flex flex-column">-->
+                            <!--                                <label for="dailyPriceInput">Wavier Deductions</label>-->
+                            <!--                                <input class="input" id="dailyPriceInput">-->
+                            <!--                            </div>-->
+
+                            <div class="d-flex flex-column w-25 align-items-center">
+                                <label for="dailyPriceInput">Total</label>
+                                <input class="input w-75 mt-2" id="inputTotal">
+                            </div>
+                        </div>
+
+
+
+                        <div class="d-flex mt-3 container bottom-0">
+
+                            <button class="btn btn-danger w-25" id="btnRentalPopupClose">Close</button>
+                        </div>
+
+                    </div>
+
+                </section>
+                <div>
+                    <table class="table mt-3">
+                        <thead class="table-header bg-primary text-white">
+                        <td>Rental ID</td>
+                        <td>Customer ID</td>
+                        <td>Pickup Date</td>
+                        <td>Pickup Time</td>
+                        <td>Duration</td>
+                        <td>status</td>
+                        </thead>
+
+                        <tbody id="tblRentRequests"></tbody>
+                    </table>
+                </div>
+
+
+            </section>
+
+            <!--            PAYMENT SECTION-->
+
+            <section id="paymentsSec" class="container-fluid contentSections">
+                <table class="table mt-3">
+                    <thead class="table-header bg-primary text-white">
+                    <td>Payment ID</td>
+                    <td>Wavier Slip</td>
+                    <td>Waver Deductions</td>
+                    <td>Total Payment</td>
+                    </thead>
+
+                    <tbody id="tblPayments"></tbody>
+                </table>
+            </section>
+
+            <!--            REPORT SECTION-->
+
+            <section id="reportsSec" class="container-fluid contentSections"></section>
+            <!--            <section id="dashboardSec"></section>-->
+        </section>
+    </section>
+
+</main>
+<script src="../assects/jquery-3.7.1.min.js"></script>
+<script src="../controllers/adminpanel.js"></script>
+</body>
+</html>
