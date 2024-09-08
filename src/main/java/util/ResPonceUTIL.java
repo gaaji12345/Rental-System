@@ -14,5 +14,5 @@ public class ResPonceUTIL {
     private int code;
     private String massage;
     private Object data;
-    
+
 }

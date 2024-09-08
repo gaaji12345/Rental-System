@@ -48,7 +48,7 @@ public class CustomerServiceIMPL implements CustomerService {
         try {
 
             String projectPath = System.getProperty("user.dir");
-            Path sourceCodePath = Paths.get(projectPath).getParent().getParent().resolve("Rental-System/front");
+            Path sourceCodePath = Paths.get(projectPath).getParent().getParent().resolve("Renal-System/front");
 
 
             File uploadsDir = new File(sourceCodePath + "/uploads");
